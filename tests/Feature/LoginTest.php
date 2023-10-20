@@ -63,7 +63,7 @@ class LoginTest extends TestCase
      */
     public function authenticated_user_can_logout(string $accessToken): void
     {
-        $response = $this->withHeader('Authorization', "Bearer $accessToken")->postJson('/api/auth/logout');
+        $response = $this->withHeader('Authorization', "Bearer {$accessToken}")->postJson('/api/auth/logout');
 
         $response->assertOk();
     }
@@ -75,7 +75,7 @@ class LoginTest extends TestCase
      */
     public function authenticated_user_can_refresh_token(string $accessToken): void
     {
-        $response = $this->withHeader('Authorization', "Bearer $accessToken")->postJson('/api/auth/refresh');
+        $response = $this->withHeader('Authorization', "Bearer {$accessToken}")->postJson('/api/auth/refresh');
 
         $response->assertOk();
         $this->assertAuthenticated();
@@ -85,5 +85,4 @@ class LoginTest extends TestCase
             'expires_in',
         ]);
     }
-
 }

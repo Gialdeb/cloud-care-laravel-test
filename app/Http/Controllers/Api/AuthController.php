@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -47,10 +48,13 @@ class AuthController extends Controller
      */
     protected function respondWithToken(string $token): JsonResponse
     {
+        /** @var JWTAuth $auth */
+        $auth = auth();
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => $auth->factory()->getTTL() * 60,
         ]);
     }
 }

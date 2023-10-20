@@ -50,16 +50,15 @@ class User extends Authenticatable implements JWTSubject
         'password' => 'hashed',
     ];
 
-    /** @inheritdoc */
+    /** {@inheritdoc} */
     public function getJWTIdentifier(): mixed
     {
         return $this->getKey();
     }
 
-    /** @inheritdoc */
+    /** {@inheritdoc} */
     public function getJWTCustomClaims(): array
     {
         return [];
     }
-
 }

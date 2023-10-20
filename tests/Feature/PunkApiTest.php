@@ -38,5 +38,4 @@ class PunkApiTest extends TestCase
 
         $response->assertStatus(Response::HTTP_OK);
     }
-
 }

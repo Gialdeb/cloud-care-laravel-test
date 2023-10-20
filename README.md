@@ -46,7 +46,22 @@
   ./vendor/bin/sail artisan migrate:fresh --seed
   ```
 
-## Features
+## Development
+
+* Run static analysis with:
+  ```shell
+  ./vendor/bin/sail php ./vendor/bin/phpstan analyze
+  ```
+* Run code linting with:
+  ```shell
+  ./vendor/bin/sail php ./vendor/bin/duster lint
+  ```
+* Fix lint errors with:
+  ```shell
+  ./vendor/bin/sail php ./vendor/bin/duster fix
+  ```
+
+## Endpoints
 
 * Login with `root` as a username and `password` as a password with (add `APP_PORT` to base URL if different from 80):
   ```shell
